@@ -17,18 +17,11 @@ CREATE TABLE contact(
     email VARCHAR(150) UNIQUE NOT NULL
 );
 
-CREATE TABLE trips(
-    id_trips BIGSERIAL PRIMARY KEY,
-    city BIGINT
-);
-
 CREATE TABLE itinerary(
     id_itinerary BIGSERIAL PRIMARY KEY,
-    key_itinerary VARCHAR(100),
-    valor VARCHAR(500),
-    image_link VARCHAR(500),
-    image BYTEA,
-    trip BIGINT
+    resume VARCHAR(500),
+    money_quantity NUMERIC(7,2),
+    city BIGINT
 );
 
 CREATE TABLE country(
@@ -63,10 +56,10 @@ CREATE TABLE reviews(
     image BYTEA
 );
 
-CREATE TABLE trip_reviews(
-    id_trip_reviews BIGSERIAL PRIMARY KEY,
+CREATE TABLE itinerary_reviews(
+    id_itinerary_reviews BIGSERIAL PRIMARY KEY,
     reviews BIGINT,
-    trip BIGINT
+    itinerary BIGINT
 );
 
 CREATE TABLE comments (
@@ -83,10 +76,9 @@ CREATE TABLE users(
     password VARCHAR(255) NOT NULL
 );
 
-ALTER TABLE trips ADD CONSTRAINT fk_city_trips FOREIGN KEY (city) REFERENCES city (id_city);
-ALTER TABLE itinerary ADD CONSTRAINT fk_trip_itinerary FOREIGN KEY (trip) REFERENCES trips (id_trips);
-ALTER TABLE trip_reviews ADD CONSTRAINT fk_trip_reviews_reviews FOREIGN KEY (reviews) REFERENCES reviews (id_reviews);
-ALTER TABLE trip_reviews ADD CONSTRAINT fk_trip_reviews_trips FOREIGN KEY (trip) REFERENCES trips (id_trips);
+ALTER TABLE itinerary ADD CONSTRAINT fk_city_itinerary FOREIGN KEY (city) REFERENCES city (id_city);
+ALTER TABLE itinerary_reviews ADD CONSTRAINT fk_itinerary_reviews_reviews FOREIGN KEY (reviews) REFERENCES reviews (id_reviews);
+ALTER TABLE itinerary_reviews ADD CONSTRAINT fk_itinerary_reviews_itinerary FOREIGN KEY (itinerary) REFERENCES itinerary (id_itinerary);
 ALTER TABLE comments ADD CONSTRAINT fk_traveler_comments FOREIGN KEY (traveler) REFERENCES traveler (id_traveler);
 ALTER TABLE comments ADD CONSTRAINT fk_reviews_comments FOREIGN KEY (reviews) REFERENCES reviews (id_reviews);
 ALTER TABLE state ADD CONSTRAINT fk_country_state FOREIGN KEY (country) REFERENCES country (id_country);
