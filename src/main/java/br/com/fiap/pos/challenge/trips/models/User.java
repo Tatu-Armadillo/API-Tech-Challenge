@@ -3,7 +3,6 @@ package br.com.fiap.pos.challenge.trips.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
-//comment test
 @Entity
 @Data
 @Table(name = "users")

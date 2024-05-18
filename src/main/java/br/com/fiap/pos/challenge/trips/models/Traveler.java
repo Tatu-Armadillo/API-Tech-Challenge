@@ -24,7 +24,7 @@ public class Traveler {
     private Contact contact;
    
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user", referencedColumnName = "id_user")
+    @JoinColumn(name = "users", referencedColumnName = "id_user")
     private User user;
 
 }
