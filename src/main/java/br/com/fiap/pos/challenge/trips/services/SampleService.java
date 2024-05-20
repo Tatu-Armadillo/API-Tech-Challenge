@@ -2,7 +2,7 @@ package br.com.fiap.pos.challenge.trips.services;
 
 
 import br.com.fiap.pos.challenge.trips.models.User;
-import br.com.fiap.pos.challenge.trips.repositories.SampleRepository;
+import br.com.fiap.pos.challenge.trips.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +12,9 @@ import java.util.List;
 public class SampleService {
 
     @Autowired
-    private SampleRepository sampleRepository;
+    private UserRepository userRepository;
 
     public List<User> getAllUsers(){
-        return sampleRepository.findAll();
+        return userRepository.findAll();
     }
 }
