@@ -1,7 +1,7 @@
 package br.com.fiap.pos.challenge.trips.controllers;
 
 import br.com.fiap.pos.challenge.trips.models.User;
-import br.com.fiap.pos.challenge.trips.services.SampleService;
+import br.com.fiap.pos.challenge.trips.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,10 +17,10 @@ import java.util.List;
 public class GetTest {
 
     @Autowired
-    private SampleService sampleService;
+    private UserService userService;
 
     @GetMapping("/test")
     public ResponseEntity<List<User>> getTest(){
-        return ResponseEntity.ok(sampleService.getAllUsers());
+        return ResponseEntity.ok(userService.getAllUsers());
     }
 }
