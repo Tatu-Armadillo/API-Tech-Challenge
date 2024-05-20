@@ -4,10 +4,8 @@ import java.math.BigDecimal;
 import java.util.Set;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 @Entity
-@Data
 @Table(name = "itinerary")
 public class Itinerary {
 
@@ -30,4 +28,43 @@ public class Itinerary {
     @JoinTable(name = "itinerary_reviews", joinColumns = @JoinColumn(name = "itinerary"), inverseJoinColumns = @JoinColumn(name = "destination"))
     private Set<Review> reviews;
 
+    public Long getIdItinerary() {
+        return this.idItinerary;
+    }
+
+    public void setIdItinerary(Long idItinerary) {
+        this.idItinerary = idItinerary;
+    }
+
+    public String getResume() {
+        return this.resume;
+    }
+
+    public void setResume(String resume) {
+        this.resume = resume;
+    }
+
+    public BigDecimal getMoneyQuantity() {
+        return this.moneyQuantity;
+    }
+
+    public void setMoneyQuantity(BigDecimal moneyQuantity) {
+        this.moneyQuantity = moneyQuantity;
+    }
+
+    public City getCity() {
+        return this.city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public Set<Review> getReviews() {
+        return this.reviews;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
+    }
 }

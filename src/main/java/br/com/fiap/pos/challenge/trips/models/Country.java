@@ -1,10 +1,8 @@
 package br.com.fiap.pos.challenge.trips.models;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 @Entity
-@Data
 @Table(name = "country")
 public class Country {
 
@@ -34,7 +32,7 @@ public class Country {
     }
 
     public Long getIdCountry() {
-        return idCountry;
+        return this.idCountry;
     }
 
     public void setIdCountry(Long idCountry) {
@@ -42,7 +40,7 @@ public class Country {
     }
 
     public String getPortugueseName() {
-        return portugueseName;
+        return this.portugueseName;
     }
 
     public void setPortugueseName(String portugueseName) {
@@ -50,7 +48,7 @@ public class Country {
     }
 
     public String getEnglishName() {
-        return englishName;
+        return this.englishName;
     }
 
     public void setEnglishName(String englishName) {
@@ -58,7 +56,7 @@ public class Country {
     }
 
     public String getImageLink() {
-        return imageLink;
+        return this.imageLink;
     }
 
     public void setImageLink(String imageLink) {
@@ -66,7 +64,7 @@ public class Country {
     }
 
     public byte[] getImage() {
-        return image;
+        return this.image;
     }
 
     public void setImage(byte[] image) {

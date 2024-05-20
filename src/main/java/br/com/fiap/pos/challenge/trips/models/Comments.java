@@ -3,10 +3,8 @@ package br.com.fiap.pos.challenge.trips.models;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 @Entity
-@Data
 @Table(name = "comments")
 public class Comments {
 
@@ -29,4 +27,43 @@ public class Comments {
     @JoinColumn(name = "review", foreignKey = @ForeignKey(name = "fk_reviews_comments"))
     private Review review;
 
+    public Long getIdComments() {
+        return this.idComments;
+    }
+
+    public void setIdComments(Long idComments) {
+        this.idComments = idComments;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public LocalDateTime getDateTime() {
+        return this.dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public Traveler getTraveler() {
+        return this.traveler;
+    }
+
+    public void setTraveler(Traveler traveler) {
+        this.traveler = traveler;
+    }
+
+    public Review getReview() {
+        return this.review;
+    }
+
+    public void setReview(Review review) {
+        this.review = review;
+    }
 }

@@ -1,10 +1,8 @@
 package br.com.fiap.pos.challenge.trips.models;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 @Entity
-@Data
 @Table(name = "contact")
 public class Contact {
 
@@ -22,4 +20,35 @@ public class Contact {
     @Column(name = "email")
     private String email;
 
+    public Long getIdContact() {
+        return this.idContact;
+    }
+
+    public void setIdContact(Long idContact) {
+        this.idContact = idContact;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhone() {
+        return this.phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

@@ -4,10 +4,8 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 @Entity
-@Data
 @Table(name = "news")
 public class Review {
 
@@ -35,4 +33,59 @@ public class Review {
     @JoinTable(name = "itinerary_reviews", joinColumns = @JoinColumn(name = "reviews"), inverseJoinColumns = @JoinColumn(name = "destination"))
     private Set<Itinerary> itineraris;
 
+    public Long getIdNews() {
+        return this.idNews;
+    }
+
+    public void setIdNews(Long idNews) {
+        this.idNews = idNews;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public LocalDateTime getDateTime() {
+        return this.dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public String getImageLink() {
+        return this.imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
+    }
+
+    public byte[] getImage() {
+        return this.image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public Set<Itinerary> getItineraris() {
+        return this.itineraris;
+    }
+
+    public void setItineraris(Set<Itinerary> itineraris) {
+        this.itineraris = itineraris;
+    }
 }

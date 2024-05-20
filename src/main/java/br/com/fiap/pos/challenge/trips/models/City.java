@@ -1,10 +1,8 @@
 package br.com.fiap.pos.challenge.trips.models;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 @Entity
-@Data
 @Table(name = "city")
 public class City {
 
@@ -23,4 +21,35 @@ public class City {
     @JoinColumn(name = "state", foreignKey = @ForeignKey(name = "fk_state_city"))
     private State state;
 
+    public Long getIdCity() {
+        return this.idCity;
+    }
+
+    public void setIdCity(Long idCity) {
+        this.idCity = idCity;
+    }
+
+    public String getIbgeCode() {
+        return this.ibgeCode;
+    }
+
+    public void setIbgeCode(String ibgeCode) {
+        this.ibgeCode = ibgeCode;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public State getState() {
+        return this.state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
 }

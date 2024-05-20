@@ -1,10 +1,8 @@
 package br.com.fiap.pos.challenge.trips.models;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 @Entity
-@Data
 @Table(name = "traveler")
 public class Traveler {
 
@@ -27,4 +25,43 @@ public class Traveler {
     @JoinColumn(name = "users", referencedColumnName = "id_user")
     private User user;
 
+    public Long getIdTraveler() {
+        return this.idTraveler;
+    }
+
+    public void setIdTraveler(Long idTraveler) {
+        this.idTraveler = idTraveler;
+    }
+
+    public String getImageLink() {
+        return this.imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
+    }
+
+    public byte[] getImage() {
+        return this.image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public Contact getContact() {
+        return this.contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
+
+    public User getUser() {
+        return this.user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
