@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/user")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-public class GetTest {
+public class UserController {
 
     @Autowired
     private UserService userService;
