@@ -1,0 +1,28 @@
+Insert into state (uf_code, name, uf, country) values (12, 'Acre', 'AC', 33);
+Insert into state (uf_code, name, uf, country) values (16, 'Amapá', 'AP', 33);
+Insert into state (uf_code, name, uf, country) values (27, 'Alagoas', 'AL', 33);
+Insert into state (uf_code, name, uf, country) values (29, 'Bahia', 'BA', 33);
+Insert into state (uf_code, name, uf, country) values (13, 'Amazonas', 'AM', 33);
+Insert into state (uf_code, name, uf, country) values (53, 'Distrito Federal', 'DF', 33);
+Insert into state (uf_code, name, uf, country) values (23, 'Ceará', 'CE', 33);
+Insert into state (uf_code, name, uf, country) values (52, 'Goiás', 'GO', 33);
+Insert into state (uf_code, name, uf, country) values (32, 'Espírito Santo', 'ES', 33);
+Insert into state (uf_code, name, uf, country) values (51, 'Mato Grosso', 'MT', 33);
+Insert into state (uf_code, name, uf, country) values (21, 'Maranhão', 'MA', 33);
+Insert into state (uf_code, name, uf, country) values (31, 'Minas Gerais', 'MG', 33);
+Insert into state (uf_code, name, uf, country) values (50, 'Mato Grosso do Sul', 'MS', 33);
+Insert into state (uf_code, name, uf, country) values (25, 'Paraíba', 'PB', 33);
+Insert into state (uf_code, name, uf, country) values (15, 'Pará', 'PA', 33);
+Insert into state (uf_code, name, uf, country) values (26, 'Pernambuco', 'PE', 33);
+Insert into state (uf_code, name, uf, country) values (41, 'Paraná', 'PR', 33);
+Insert into state (uf_code, name, uf, country) values (33, 'Rio de Janeiro', 'RJ', 33);
+Insert into state (uf_code, name, uf, country) values (22, 'Piauí', 'PI', 33);
+Insert into state (uf_code, name, uf, country) values (43, 'Rio Grande do Sul', 'RS', 33);
+Insert into state (uf_code, name, uf, country) values (24, 'Rio Grande do Norte', 'RN', 33);
+Insert into state (uf_code, name, uf, country) values (14, 'Roraima', 'RR', 33);
+Insert into state (uf_code, name, uf, country) values (11, 'Rondônia', 'RO', 33);
+Insert into state (uf_code, name, uf, country) values (35, 'São Paulo', 'SP', 33);
+Insert into state (uf_code, name, uf, country) values (42, 'Santa Catarina', 'SC', 33);
+Insert into state (uf_code, name, uf, country) values (17, 'Tocantins', 'TO', 33);
+Insert into state (uf_code, name, uf, country) values (28, 'Sergipe', 'SE', 33);
+

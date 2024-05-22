@@ -54,11 +54,11 @@ VALUES
   ('Highly recommended', 'I highly recommend visiting this destination.', CURRENT_TIMESTAMP, 'https://example.com/review3.jpg', NULL);
 
 -- Insert data into itinerary table
-INSERT INTO challenge_trips.itinerary (resume, money_quantity, city)
+INSERT INTO challenge_trips.itinerary (resume, shared, money_quantity, city)
 VALUES
-  ('Exploring São Paulo', 500.00, 1),
-  ('Beach holiday in Rio de Janeiro', 700.00, 2),
-  ('Touring Madrid', 600.00, 3);
+  ('Exploring São Paulo', 'true', 500.00, 1),
+  ('Beach holiday in Rio de Janeiro', 'true',  700.00, 2),
+  ('Touring Madrid', 'true', 600.00, 3);
 
 -- Insert data into itinerary_reviews table
 INSERT INTO challenge_trips.itinerary_reviews (reviews, itinerary)

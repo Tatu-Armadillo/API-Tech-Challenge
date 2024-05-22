@@ -1,7 +1,3 @@
-DROP SCHEMA IF EXISTS challenge_trips CASCADE;
-CREATE SCHEMA challenge_trips;
-SET search_path TO challenge_trips;
-
 CREATE TABLE traveler(
     id_traveler BIGSERIAL PRIMARY KEY,
     image_link VARCHAR(500),
@@ -20,6 +16,7 @@ CREATE TABLE contact(
 CREATE TABLE itinerary(
     id_itinerary BIGSERIAL PRIMARY KEY,
     resume VARCHAR(500),
+    shared BOOLEAN NOT NULL,
     money_quantity NUMERIC(7,2),
     city BIGINT
 );

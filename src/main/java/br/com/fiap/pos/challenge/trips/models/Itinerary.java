@@ -16,6 +16,9 @@ public class Itinerary {
 
     @Column(name = "resume")
     private String resume;
+    
+    @Column(name = "shared")
+    private boolean shared;
 
     @Column(name = "money_quantity")
     private BigDecimal moneyQuantity;
@@ -42,6 +45,14 @@ public class Itinerary {
 
     public void setResume(String resume) {
         this.resume = resume;
+    }
+
+    public boolean isShared() {
+        return shared;
+    }
+
+    public void setShared(boolean shared) {
+        this.shared = shared;
     }
 
     public BigDecimal getMoneyQuantity() {
