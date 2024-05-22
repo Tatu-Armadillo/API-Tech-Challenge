@@ -1,4 +1,4 @@
-package br.com.fiap.pos.challenge.trips.dto;
+package br.com.fiap.pos.challenge.trips.dto.itinerary;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

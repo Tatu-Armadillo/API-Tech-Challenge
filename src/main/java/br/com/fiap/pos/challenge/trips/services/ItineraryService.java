@@ -7,7 +7,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.fiap.pos.challenge.trips.dto.ItineraryDTO;
+import br.com.fiap.pos.challenge.trips.dto.itinerary.ItineraryDTO;
+import br.com.fiap.pos.challenge.trips.dto.itinerary.SimpleListitineraryDTO;
+import br.com.fiap.pos.challenge.trips.exception.NotFoundException;
 import br.com.fiap.pos.challenge.trips.models.Itinerary;
 import br.com.fiap.pos.challenge.trips.repositories.ItineraryRepository;
 
@@ -33,11 +35,16 @@ public class ItineraryService {
         return this.itineraryRepository.save(entity);
     }
 
-    public Page<ItineraryDTO> findItinerariesWithFilter(
+    public Itinerary findById(final Long id) {
+        return this.itineraryRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Itinerary with id: " + id));
+    }
+
+    public Page<SimpleListitineraryDTO> pageItinerariesWithFilter(
             final Pageable pageable,
             final String filter) {
-        final var response = this.itineraryRepository.findItinerariesWithFilter(filter, pageable);
-        return response.map(ItineraryDTO::of);
+        final var response = this.itineraryRepository.pageItinerariesWithFilter(filter, pageable);
+        return response.map(SimpleListitineraryDTO::of);
     }
 
     private Itinerary toEntity(final ItineraryDTO dto) {

@@ -19,6 +19,6 @@ public interface ItineraryRepository extends JpaRepository<Itinerary, Long> {
             " OR UPPER(state.uf) = UPPER(:filter)               " +
             " OR UPPER(state.name) = UPPER(:filter)             " +
             " OR (UPPER(city.name) = UPPER(:filter)))           ")
-    Page<Itinerary> findItinerariesWithFilter(@Param("filter") String filter, Pageable pageable);
+    Page<Itinerary> pageItinerariesWithFilter(@Param("filter") String filter, Pageable pageable);
 
 }
