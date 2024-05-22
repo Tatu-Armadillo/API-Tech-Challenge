@@ -17,13 +17,18 @@ public class Traveler {
     @Column(name = "image")
     private byte[] image;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "contact", referencedColumnName = "id_contact")
-    private Contact contact;
-   
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "phone")
+    private String phone;
+
+    @Column(name = "email")
+    private String email;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "users", referencedColumnName = "id_user")
-    private User user;
+    private User users;
 
     public Long getIdTraveler() {
         return this.idTraveler;
@@ -49,19 +54,35 @@ public class Traveler {
         this.image = image;
     }
 
-    public Contact getContact() {
-        return this.contact;
+    public String getName() {
+        return this.name;
     }
 
-    public void setContact(Contact contact) {
-        this.contact = contact;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public User getUser() {
-        return this.user;
+    public String getPhone() {
+        return this.phone;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public User getUsers() {
+        return users;
+    }
+
+    public void setUsers(User users) {
+        this.users = users;
     }
 }

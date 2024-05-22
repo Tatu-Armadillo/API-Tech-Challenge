@@ -1,6 +1,8 @@
 package br.com.fiap.pos.challenge.trips.models;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 import jakarta.persistence.*;
@@ -23,9 +25,22 @@ public class Itinerary {
     @Column(name = "money_quantity")
     private BigDecimal moneyQuantity;
 
+    @Column(name = "departure_date")
+    private LocalDate departureDate;
+
+    @Column(name = "return_date")
+    private LocalDate returnDate;
+
+    @Column(name = "crate_date")
+    private LocalDateTime crateDate;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "city", foreignKey = @ForeignKey(name = "fk_city_itinerary"))
     private City city;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "traveler", foreignKey = @ForeignKey(name = "fk_traveler_itinerary"))
+    private Traveler traveler;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "itinerary_reviews", joinColumns = @JoinColumn(name = "itinerary"), inverseJoinColumns = @JoinColumn(name = "destination"))
@@ -63,12 +78,44 @@ public class Itinerary {
         this.moneyQuantity = moneyQuantity;
     }
 
+    public LocalDate getDepartureDate() {
+        return departureDate;
+    }
+
+    public void setDepartureDate(LocalDate departureDate) {
+        this.departureDate = departureDate;
+    }
+
+    public LocalDate getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(LocalDate returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public LocalDateTime getCrateDate() {
+        return crateDate;
+    }
+
+    public void setCrateDate(LocalDateTime crateDate) {
+        this.crateDate = crateDate;
+    }
+
     public City getCity() {
         return this.city;
     }
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+    public Traveler getTraveler() {
+        return traveler;
+    }
+
+    public void setTraveler(Traveler traveler) {
+        this.traveler = traveler;
     }
 
     public Set<Review> getReviews() {

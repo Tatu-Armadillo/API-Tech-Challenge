@@ -1,37 +1,3 @@
--- Insert data into contact table
-INSERT INTO challenge_trips.contact (name, phone, email)
-VALUES
-  ('John Doe', '1234567890', 'john@example.com'),
-  ('Jane Smith', '9876543210', 'jane@example.com'),
-  ('Michael Johnson', '5555555555', 'michael@example.com');
-
--- Insert data into country table
-INSERT INTO challenge_trips.country (portuguese_name, english_name, image_link, image)
-VALUES
-  ('Brasil', 'Brazil', 'https://example.com/brasil.jpg', NULL),
-  ('Espanha', 'Spain', 'https://example.com/espanha.jpg', NULL),
-  ('França', 'France', 'https://example.com/franca.jpg', NULL);
-
--- Insert data into state table
-INSERT INTO challenge_trips.state (uf_code, name, uf, country)
-VALUES
-  (1, 'São Paulo', 'SP', 1),
-  (2, 'Rio de Janeiro', 'RJ', 1),
-  (3, 'Madrid', 'MD', 2),
-  (4, 'Barcelona', 'BC', 2),
-  (5, 'Paris', 'PA', 3),
-  (6, 'Marseille', 'MR', 3);
-
--- Insert data into city table
-INSERT INTO challenge_trips.city (ibge_code, name, state)
-VALUES
-  ('1234567', 'São Paulo', 1),
-  ('7654321', 'Rio de Janeiro', 2),
-  ('1111111', 'Madrid', 3),
-  ('2222222', 'Barcelona', 4),
-  ('3333333', 'Paris', 5),
-  ('4444444', 'Marseille', 6);
-
  -- Insert data into users table
 INSERT INTO challenge_trips."users" (user_name, password)
 VALUES
@@ -40,11 +6,11 @@ VALUES
   ('michael_johnson', 'password789');
 
 -- Insert data into traveler table
-INSERT INTO challenge_trips.traveler (image_link, image, contact, user_id)
+INSERT INTO challenge_trips.traveler (image_link, image, name, phone, email, users)
 VALUES
-  ('https://example.com/john.jpg', NULL, 1, 1),
-  ('https://example.com/jane.jpg', NULL, 2, 2),
-  ('https://example.com/michael.jpg', NULL, 3, 3);
+  ('https://example.com/john.jpg', NULL, 'John Doe', '1234567890', 'john@example.com', 1),
+  ('https://example.com/jane.jpg', NULL, 'Jane Smith', '9876543210', 'jane@example.com', 2),
+  ('https://example.com/michael.jpg', NULL, 'Michael Johnson', '5555555555', 'michael@example.com', 3);
 
 -- Insert data into reviews table
 INSERT INTO challenge_trips.reviews (title, text, date_time, image_link, image)
@@ -54,11 +20,11 @@ VALUES
   ('Highly recommended', 'I highly recommend visiting this destination.', CURRENT_TIMESTAMP, 'https://example.com/review3.jpg', NULL);
 
 -- Insert data into itinerary table
-INSERT INTO challenge_trips.itinerary (resume, shared, money_quantity, city)
+INSERT INTO challenge_trips.itinerary (resume, shared, money_quantity, departure_date, return_date, city, traveler)
 VALUES
-  ('Exploring São Paulo', 'true', 500.00, 1),
-  ('Beach holiday in Rio de Janeiro', 'true',  700.00, 2),
-  ('Touring Madrid', 'true', 600.00, 3);
+  ('Exploring São Paulo', 'true', 500.00, CURRENT_DATE, CURRENT_DATE, 1, 1),
+  ('Beach holiday in Rio de Janeiro', 'true', 700.00, CURRENT_DATE, CURRENT_DATE, 2, 2),
+  ('Touring Madrid', 'true', 600.00, CURRENT_DATE, CURRENT_DATE, 3, 3);
 
 -- Insert data into itinerary_reviews table
 INSERT INTO challenge_trips.itinerary_reviews (reviews, itinerary)

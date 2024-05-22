@@ -2,15 +2,10 @@ CREATE TABLE traveler(
     id_traveler BIGSERIAL PRIMARY KEY,
     image_link VARCHAR(500),
     image BYTEA,
-    contact BIGINT,
-    user_id BIGINT
-);
-
-CREATE TABLE contact(
-    id_contact BIGSERIAL PRIMARY KEY,
     name VARCHAR(150) NOT NULL,
     phone VARCHAR(13) NOT NULL,
-    email VARCHAR(150) UNIQUE NOT NULL
+    email VARCHAR(150) UNIQUE NOT NULL,
+    users BIGINT
 );
 
 CREATE TABLE itinerary(
@@ -18,6 +13,10 @@ CREATE TABLE itinerary(
     resume VARCHAR(500),
     shared BOOLEAN NOT NULL,
     money_quantity NUMERIC(7,2),
+    departure_date DATE NOT NULL,
+    return_date DATE,
+    crate_date TIMESTAMP DEFAULT CURRENT_DATE, 
+    traveler BIGINT,
     city BIGINT
 );
 
@@ -74,11 +73,11 @@ CREATE TABLE users(
 );
 
 ALTER TABLE itinerary ADD CONSTRAINT fk_city_itinerary FOREIGN KEY (city) REFERENCES city (id_city);
+ALTER TABLE itinerary ADD CONSTRAINT fk_traveler_itinerary FOREIGN KEY (traveler) REFERENCES traveler (id_traveler);
 ALTER TABLE itinerary_reviews ADD CONSTRAINT fk_itinerary_reviews_reviews FOREIGN KEY (reviews) REFERENCES reviews (id_reviews);
 ALTER TABLE itinerary_reviews ADD CONSTRAINT fk_itinerary_reviews_itinerary FOREIGN KEY (itinerary) REFERENCES itinerary (id_itinerary);
 ALTER TABLE comments ADD CONSTRAINT fk_traveler_comments FOREIGN KEY (traveler) REFERENCES traveler (id_traveler);
 ALTER TABLE comments ADD CONSTRAINT fk_reviews_comments FOREIGN KEY (reviews) REFERENCES reviews (id_reviews);
 ALTER TABLE state ADD CONSTRAINT fk_country_state FOREIGN KEY (country) REFERENCES country (id_country);
 ALTER TABLE city ADD CONSTRAINT fk_state_city FOREIGN KEY (state) REFERENCES state (uf_code);
-ALTER TABLE traveler ADD CONSTRAINT fk_contact_traveler FOREIGN KEY (contact) REFERENCES contact (id_contact);
-ALTER TABLE traveler ADD CONSTRAINT fk_traveler_users FOREIGN KEY (user_id) REFERENCES users (id_user);
+ALTER TABLE traveler ADD CONSTRAINT fk_traveler_users FOREIGN KEY (users) REFERENCES users (id_user);
