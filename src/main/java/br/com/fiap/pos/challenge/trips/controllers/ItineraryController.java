@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,8 +57,8 @@ public class ItineraryController {
                 return ResponseEntity.ok(base);
         }
 
-        @GetMapping
-        @Operation(summary = "Find Itineraries with filters", description = "responsible for returning the itineraries", tags = {
+        @GetMapping("/{id}")
+        @Operation(summary = "Open Itinerary for ID", description = "responsible for returning Itinerary for ID", tags = {
                         "Itinerary" }, responses = {
                                         @ApiResponse(description = "Success", responseCode = "200", content = {
                                                         @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ItineraryDTO.class))) }),
@@ -65,7 +66,7 @@ public class ItineraryController {
                                         @ApiResponse(description = "Not Found", responseCode = "404", content = @Content),
                                         @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content)
                         })
-        public ResponseEntity<ResponseBase<ItineraryDTO>> findById(@RequestParam final Long id) {
+        public ResponseEntity<ResponseBase<ItineraryDTO>> findById(@PathVariable final Long id) {
                 final var response = this.itineraryService.findById(id);
                 final var base = ResponseBase.of(ItineraryDTO.of(response));
                 return ResponseEntity.ok(base);
