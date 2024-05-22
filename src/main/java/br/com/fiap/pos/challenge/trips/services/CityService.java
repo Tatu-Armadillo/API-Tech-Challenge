@@ -3,6 +3,7 @@ package br.com.fiap.pos.challenge.trips.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.fiap.pos.challenge.trips.exception.NotFoundException;
 import br.com.fiap.pos.challenge.trips.models.City;
 import br.com.fiap.pos.challenge.trips.repositories.CityRepository;
 
@@ -17,7 +18,9 @@ public class CityService {
     }
 
     public City findCityByName(final String name) {
-        return this.cityRepository.findCityByName(name).orElseThrow();
+        return this.cityRepository
+        .findCityByName(name)
+        .orElseThrow(() -> new NotFoundException("City with name: " + name));
     }
 
 }

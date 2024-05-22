@@ -3,6 +3,7 @@ package br.com.fiap.pos.challenge.trips.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.fiap.pos.challenge.trips.exception.NotFoundException;
 import br.com.fiap.pos.challenge.trips.models.Traveler;
 import br.com.fiap.pos.challenge.trips.repositories.TravelerRepository;
 
@@ -17,7 +18,9 @@ public class TravelerService {
     }
 
     public Traveler findTravelerByName(final String name) {
-        return this.travelerRepository.findTravelerByName(name).orElseThrow();
+        return this.travelerRepository
+                .findTravelerByName(name)
+                .orElseThrow(() -> new NotFoundException("Traveler with name: " + name));
     }
 
 }

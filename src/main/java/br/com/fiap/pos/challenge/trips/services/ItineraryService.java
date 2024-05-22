@@ -39,8 +39,8 @@ public class ItineraryService {
         entity.setDepartureDate(dto.departureDate());
         entity.setReturnDate(dto.returnDate());
         entity.setCrateDate(LocalDateTime.now());
-        entity.setCity(this.cityService.findCityByName(dto.nameCity()));
         entity.setTraveler(this.travelerService.findTravelerByName(dto.travelerName()));
+        entity.setCity(this.cityService.findCityByName(dto.nameCity()));
         return entity;
     }
 
