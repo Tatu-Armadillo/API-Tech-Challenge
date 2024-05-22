@@ -43,7 +43,7 @@ public class Itinerary {
     private Traveler traveler;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "itinerary_reviews", joinColumns = @JoinColumn(name = "itinerary"), inverseJoinColumns = @JoinColumn(name = "destination"))
+    @JoinTable(name = "itinerary_reviews", joinColumns = @JoinColumn(name = "itinerary"), inverseJoinColumns = @JoinColumn(name = "reviews"))
     private Set<Review> reviews;
 
     public Long getIdItinerary() {

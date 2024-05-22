@@ -2,6 +2,8 @@ package br.com.fiap.pos.challenge.trips.services;
 
 import java.time.LocalDateTime;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +31,13 @@ public class ItineraryService {
     public Itinerary createItinerary(final ItineraryDTO dto) {
         final var entity = this.toEntity(dto);
         return this.itineraryRepository.save(entity);
+    }
+
+    public Page<ItineraryDTO> findItinerariesWithFilter(
+            final Pageable pageable,
+            final String filter) {
+        final var response = this.itineraryRepository.findItinerariesWithFilter(filter, pageable);
+        return response.map(ItineraryDTO::of);
     }
 
     private Itinerary toEntity(final ItineraryDTO dto) {

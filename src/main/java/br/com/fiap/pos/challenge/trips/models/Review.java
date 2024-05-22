@@ -6,11 +6,11 @@ import java.util.Set;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "news")
+@Table(name = "reviews")
 public class Review {
 
     @Id
-    @Column(name = "id_news")
+    @Column(name = "id_reviews")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idNews;
 
@@ -30,7 +30,7 @@ public class Review {
     private byte[] image;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "itinerary_reviews", joinColumns = @JoinColumn(name = "reviews"), inverseJoinColumns = @JoinColumn(name = "destination"))
+    @JoinTable(name = "itinerary_reviews", joinColumns = @JoinColumn(name = "reviews"), inverseJoinColumns = @JoinColumn(name = "itinerary"))
     private Set<Itinerary> itineraris;
 
     public Long getIdNews() {
