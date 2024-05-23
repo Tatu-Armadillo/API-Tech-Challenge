@@ -4,6 +4,8 @@ Após uma conversa entre amigos pensando no melhor local para se tirar férias, 
 # Pré-requisitos:
 * Docker (ou Postgres instalado em sua máquina, entretanto este tutorial está escrito para o caso do Docker)
 * Java SDK 17
+* Alguma IDE para desenolvimento JAVA.
+* Maven (https://maven.apache.org/install.html)
 
 # Como executar:
 Em alguma pasta de sua preferência abra o terminal e clone o projeto:
