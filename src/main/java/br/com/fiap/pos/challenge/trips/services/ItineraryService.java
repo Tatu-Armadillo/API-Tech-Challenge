@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.fiap.pos.challenge.trips.dto.itinerary.ItineraryDTO;
-import br.com.fiap.pos.challenge.trips.dto.itinerary.SimpleListitineraryDTO;
 import br.com.fiap.pos.challenge.trips.exception.NotFoundException;
 import br.com.fiap.pos.challenge.trips.models.Itinerary;
 import br.com.fiap.pos.challenge.trips.repositories.ItineraryRepository;
@@ -17,16 +16,16 @@ import br.com.fiap.pos.challenge.trips.repositories.ItineraryRepository;
 public class ItineraryService {
 
     private final ItineraryRepository itineraryRepository;
-    private final CityService cityService;
+    private final DestinationService destinationService;
     private final TravelerService travelerService;
 
     @Autowired
     public ItineraryService(
             final ItineraryRepository itineraryRepository,
-            final CityService cityService,
+            final DestinationService destinationService,
             final TravelerService travelerService) {
         this.itineraryRepository = itineraryRepository;
-        this.cityService = cityService;
+        this.destinationService = destinationService;
         this.travelerService = travelerService;
     }
 
@@ -40,11 +39,10 @@ public class ItineraryService {
                 .orElseThrow(() -> new NotFoundException("Itinerary with id: " + id));
     }
 
-    public Page<SimpleListitineraryDTO> pageItinerariesWithFilter(
+    public Page<Itinerary> pageItinerariesWithFilter(
             final Pageable pageable,
             final String filter) {
-        final var response = this.itineraryRepository.pageItinerariesWithFilter(filter, pageable);
-        return response.map(SimpleListitineraryDTO::of);
+        return this.itineraryRepository.pageItinerariesWithFilter(filter, pageable);
     }
 
     private Itinerary toEntity(final ItineraryDTO dto) {
@@ -56,7 +54,7 @@ public class ItineraryService {
         entity.setReturnDate(dto.returnDate());
         entity.setCrateDate(LocalDateTime.now());
         entity.setTraveler(this.travelerService.findTravelerByName(dto.travelerName()));
-        entity.setCity(this.cityService.findCityByName(dto.nameCity()));
+        entity.setCity(this.destinationService.findCityByName(dto.nameCity()));
         return entity;
     }
 

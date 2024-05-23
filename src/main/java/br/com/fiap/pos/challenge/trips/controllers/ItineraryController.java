@@ -53,7 +53,7 @@ public class ItineraryController {
                         @PageableDefault(sort = "crateDate", direction = Direction.DESC) final Pageable pageable,
                         @RequestParam(required = false, defaultValue = "") final String filter) {
                 final var response = this.itineraryService.pageItinerariesWithFilter(pageable, filter);
-                final var base = ResponseBasePagination.of(response);
+                final var base = ResponseBasePagination.of(response.map(SimpleListitineraryDTO::of));
                 return ResponseEntity.ok(base);
         }
 
