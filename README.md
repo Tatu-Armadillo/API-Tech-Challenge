@@ -25,6 +25,11 @@ Após verificar se o container está rodando corretamente, execute o arquivo .ja
 src/main/java/br/com/fiap/pos/challenge/trips/TripsApplication.java
 ```
 
+Rodar o seguinte comando para rodar o projeto
+```
+.\mvnw spring-boot:run
+```
+
 Caso esteja enfrentando erros com o Flyway Migration, pare a execução do container de banco de dados, exclua-o e exclua sua imagem também. Após esse processo, realize o processo de docker compose novamente:
 
 ```
